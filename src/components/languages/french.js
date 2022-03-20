@@ -28,18 +28,18 @@ export default class French extends Component {
             // operation 
         } = this.state;
 
-        console.log("french component", valueOne)
+      
 
         return (
-            <div>
+            <div className='translation-container'>
                 <div className='french-translation'>
-                    <h2>{languageTitle} translation</h2>
+                    {/* <h2>{languageTitle} translation</h2> */}
 
                     <div className='translation'>
                         {frenchOne} {operation} {frenchTwo} = {frenchAnswer}
                     </div>
 
-                    <CalculationHistory props={this.props}/>
+                    <CalculationHistory {...this.props}/>
 
                 </div>
             </div>

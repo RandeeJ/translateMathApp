@@ -37,16 +37,16 @@ class English extends Component {
         // )
 
         return (
-            <div>
+            <div key={languageTitle} className='translation-container'>
                 <div className='english-translation'>
-                    <h2>{languageTitle} translation</h2>
+                    {/* <h2>{languageTitle} translation</h2> */}
 
                     <div className='translation'>
                         {englishOne} {operation} {englishTwo} = {englishAnswer}
                     </div>
                 </div>
 
-                <CalculationHistory props={this.props}/>
+                <CalculationHistory {...this.props}/>
 
 
             </div>

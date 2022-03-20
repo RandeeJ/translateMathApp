@@ -1,0 +1,90 @@
+.userInput{
+    grid-column: left-s/left-e;
+    &-form{
+        display: flex;
+        justify-content: space-evenly;
+
+
+        &__left-value,
+        &__right-value{
+            border-radius: 45px;
+            box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
+            2px 2px 6px rgba(0, 0, 0, 0.8);
+            background-color: $oceanBlue;
+
+        }
+
+        &__left-value{
+            grid-column: s/m;
+
+        }
+        &__right-value{
+            grid-column: m/e;
+
+        }
+    }
+}
+
+input[type="number"]{
+    color: white;
+    font-size: 50px;
+    width: 75px;
+    text-align: center;
+    transform: translateY(-10px);
+    border: $oceanBlue;
+    background-color: transparent;
+    // margin: auto;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button{
+    appearance: none;
+    margin: 0;
+}
+
+.inputButton{
+    // color: white;
+    background-color: transparent;
+    border: none;
+    // font-size: 40px;
+    cursor: pointer;
+    font-family: "Font Awesome\ 5 Free", "Lato", "Arial", "Helvetica", "sans-serif";
+    font-weight: 600;
+}
+
+input[type="button"]{
+    appearance: none;
+    cursor: pointer;
+}
+
+.fa{
+    font-size: 40px;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+    
+.fa{
+    &:hover{
+        transition: ease-in-out .3s;
+        font-size: 38px;
+        box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
+                    2px 2px 6px rgba(0, 0, 0, 0.8),
+                    inset -2px -2px 10px rgba(255, 255, 255, 0.05),
+                    inset 2px 2px 10px #00000080;
+    }
+}
+
+#decrement{
+    padding: 0 0 0 25px;
+    color: $neonRed;
+}
+
+#increment{
+    padding: 0 25px 0 0;
+    color: $neonGreen;
+}
+

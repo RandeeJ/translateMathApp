@@ -28,19 +28,18 @@ export default class Spanish extends Component {
             // operation 
         } = this.state;
 
-        console.log("spanish component", valueOne)
 
         return (
-            <div>
-                <div className='spanish-calculation'>
-                    <h2>{languageTitle} translation</h2>
+            <div className='translation-container'>
+                <div className='spanish-translation'>
+                    {/* <h2>{languageTitle} translation</h2> */}
 
                     <div className='translation'>
                         {spanishOne} {operation} {spanishTwo} = {spanishAnswer}
                     </div>
                 </div>
 
-                <CalculationHistory props={this.props}/>
+                <CalculationHistory {...this.props}/>
 
 
                 </div>

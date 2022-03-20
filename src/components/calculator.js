@@ -10,16 +10,13 @@ class Calculator extends Component {
     render () {
         const {valueOne, valueTwo } = this.props;
 
-
-        console.log("calculator component", valueOne, valueTwo)
-
         return (
-            <div>
-                <h2>
+            <div className="value-display">
+                {/* <h2 className="value-display__text">
                     Your numbers are {valueOne} and {valueTwo}!
-                </h2>
+                </h2> */}
 
-                <h1>
+                <h1 className="calculation-container">
                     <Calculation  valueOne={valueOne} valueTwo={valueTwo}/>
                 </h1>
           </div>

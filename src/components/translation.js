@@ -21,8 +21,6 @@ class Translation extends Component {
     }
 
 hideTranslation(name){
-
-
     switch(name){
         case "showHideEnglish":
             this.setState({
@@ -56,12 +54,12 @@ hideTranslation(name){
 
     
     render() {
-        const {valueOne, valueTwo, valueAnswer, operation } = this.props;
+        const {valueOne, valueTwo, valueAnswer, operation, id } = this.props;
         const {showHideEnglish, showHideSpanish, showHideFrench} = this.state
         
         return (
 
-            <div className='language'>
+            <div key={id} className='language'>
                 <div className='language-buttons'>
                     <button className="language-buttons__english" onClick={() => {this.hideTranslation("showHideEnglish")}}>
                         English
@@ -78,9 +76,9 @@ hideTranslation(name){
 
 
                 <div className = "translation__view">
-                    {showHideEnglish && <English className="translation__view-english" valueOne={valueOne} valueTwo={valueTwo} valueAnswer={valueAnswer} operation={operation}/>}
-                    {showHideFrench && <French className="translation__view-french" valueOne={valueOne} valueTwo={valueTwo} valueAnswer={valueAnswer} operation={operation}/>}
-                    {showHideSpanish && <Spanish className="translation__view-spanish" valueOne={valueOne} valueTwo={valueTwo} valueAnswer={valueAnswer} operation={operation}/>}
+                    {showHideEnglish && <English className="translation__view__english" valueOne={valueOne} valueTwo={valueTwo} valueAnswer={valueAnswer} operation={operation} id={id}/>}
+                    {showHideFrench && <French className="translation__view__french" valueOne={valueOne} valueTwo={valueTwo} valueAnswer={valueAnswer} operation={operation}/>}
+                    {showHideSpanish && <Spanish className="translation__view__spanish" valueOne={valueOne} valueTwo={valueTwo} valueAnswer={valueAnswer} operation={operation}/>}
                 </div>
             </div>
         );

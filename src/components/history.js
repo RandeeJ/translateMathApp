@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import HistoryItem from "./historyItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 class CalculationHistory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      valueOne: 0,
-      valueTwo: 0,
-      operation: 0,
-      valueAnswer: 0,
+      valueOne: this.props.valueOne,
+      valueTwo: this.props.valueTwo,
+      operation: this.props.operation,
+      valueAnswer: this.props.valueAnswer,
       data:[]
     };
+
+  
   }
 
   componentDidMount(){
@@ -21,10 +27,8 @@ class CalculationHistory extends Component {
       valueAnswer: this.props.valueAnswer,
     });
   }
-
   saveCalculation() {
-    // console.log(this.state.valueOne)
-
+    console.log( "save calculation function" , this.state),
     axios
       .post("http://127.0.0.1:5000/calculation", {
         valueOne: this.state.valueOne,
@@ -33,14 +37,8 @@ class CalculationHistory extends Component {
         valueAnswer: this.state.valueAnswer,
       })
       .then((response) => {
-        console.log("Save");
+        // console.log("Save");
         // handle success
-
-        //   this.setState({
-        // valueOne: response.data.valueOne,
-        // valueTwo: response.data.valueTwo,
-        // valueAnswer: response.data.valueAnswer
-        //   })
       })
       .catch((error) => {
         // handle error
@@ -51,15 +49,15 @@ class CalculationHistory extends Component {
       });
   }
 
+
   getCalculations() {
     axios
       .get("http://127.0.0.1:5000/calculations")
       .then((response) => {
         // handle success
-        console.log(response);
+        console.log(response.data);
         this.setState({
-          data: response.data,
-         
+          data: [...response.data],
         });
       })
       .catch((error) => {
@@ -69,33 +67,66 @@ class CalculationHistory extends Component {
       .then(() => {
         // always executed
       });
+
+      
   }
 
+
+  
+
+
+
+  calculationList() {
+    return this.state.data.reverse().map((item, id) => {
+      console.log("calculation item", item, id);
+      return(
+        <div key={id}>
+          <HistoryItem item={item} id={id}/>
+        </div>
+      )
+  })}
+
+
+// calculationList()
+
+
+  // componentDidMount() {
+  //     this.getCalculations();
+  //   }
+
+
+handleSubmit() {
+  this.saveCalculation()
+  this.getCalculations()
+}
+
+
+
   render() {
-    console.log("HELLO",this.props);
+
     return (
       <div>
         <div className="save-calculation-container">
           <button
             className="save-calculation"
             type="submit"
-            onClick={() => this.saveCalculation()}
-          >
-            Save Calculation
+            onClick={() => this.handleSubmit()}
+          > Add To List <br/> 
+            <FontAwesomeIcon icon={faArrowRight} /> 
           </button>
         </div>
 
         <div className="calculation-history">
+
+        <h1> Previously Saved Calculations </h1>
+
+          {this.calculationList()}
+          
+          
           <ul>
-          {this.state.data.map(item=>{
-            <div>
-              {item.valueOne}
-              {item.operation === "multiplication " && <div>*</div>}
-              {item.valueTwo}
-              =
-              {item.valueAnswer}
-            </div>
-          })}
+
+          {/* when this component loads, need to get history. ComponentDidMount
+          state (history) (look into) */}
 
           </ul>
         </div>
@@ -105,3 +136,8 @@ class CalculationHistory extends Component {
 }
 
 export default CalculationHistory;
+
+
+// <div className='right-column'>
+// <HistoryList data={this.state.historyItem}/>
+// </div>

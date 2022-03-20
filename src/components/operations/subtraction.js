@@ -17,10 +17,12 @@ class Subtraction extends Component {
         const valueAnswer = valueOne - valueTwo;
         const minus = " - ";        
             return(
+                <div> 
                 <div className='subtraction-calculation'>
-                <div className='calculation'>
+                <div className='subtraction-calculation__calculation'>
                     {valueOne} - {valueTwo} = {valueAnswer}
 
+                    </div>
                     </div>
 
                     <Translation valueOne = {valueOne} valueTwo = {valueTwo} valueAnswer={valueAnswer} operation={minus}/>

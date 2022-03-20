@@ -1,0 +1,80 @@
+.calculator_container{
+    display: grid;
+
+}
+
+.value-display{
+    &__text{
+
+    }
+}
+
+.calculation-container{
+    display: grid;
+    grid-template-rows: 10px [top-s] 80px [top-e middle-s] 80px [middle-e bottom-s] 80px [bottom-e] 10px;
+    grid-template-columns: 25px [icon-s] 1fr [icon-e calculation-s] 1fr [calculation-e] 25px;
+    justify-content: center;
+    row-gap: 10px;
+    width: 100%;
+    // height: 100vh;
+
+    
+    .calculation{
+        &__view{
+            grid-column: calculation-s/calculation-e;
+            .addition-calculation__calculation{
+                    grid-row: top-s/top-e; 
+            }
+            .subtraction-calculation__calculation{
+                    grid-row: middle-s/middle-e; 
+            }
+            .multiplication-calculation__calculation{
+                    grid-row: bottom-s/bottom-e;  
+            }
+        }
+    }
+
+    .operation-buttons{
+        grid-column: icon-s/icon-e;
+        width: 40px;
+        justify-content: center;
+
+        
+        & > *{
+            font-size: 27px;
+            text-align: center;
+            align-items: center;
+            background-color: $softPurple;
+            border-radius: 25%;
+            color: $sunnyYellow;
+            border: $softPurple;
+            padding: 10px;
+            box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
+            2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+        &__addition{
+            grid-row: top-s/top-e;
+        }
+        &__subtraction{
+            grid-row: middle-s/middle-e;
+        }
+        &__multiplication{
+            grid-row: bottom-s/bottom-e;
+        }
+    }
+}
+
+
+
+.operation-icon{
+    justify-self: center;
+    font-size: 50px;
+
+    &:hover{
+        font-size: 45px;
+        transition: ease-in-out .3s;
+    }
+}
+
+
+

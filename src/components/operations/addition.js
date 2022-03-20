@@ -17,9 +17,11 @@ class Addition extends Component {
         const valueAnswer = valueOne + valueTwo;
         const plus = " + ";
             return(
+                <div>
                 <div className='addition-calculation'>
-                    <div className='calculation'>
+                    <div className='addition-calculation__calculation'>
                     {valueOne} + {valueTwo} = {valueAnswer}
+                    </div>
                     </div>
                     <Translation valueOne = {valueOne} valueTwo = {valueTwo} valueAnswer = {valueAnswer} operation={plus}/>
                 </div>

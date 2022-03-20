@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Addition from './operations/addition';
 import Subtraction from "./operations/subtraction";
 import Multiplication from './operations/multiplication';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquareMinus, faSquarePlus, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -60,16 +62,20 @@ hideCalculation = (name) => {
         
         return (
 
-            <div className='calculation'>
+            <div key={valueOne} className='calculation'>
                 <div className='operation-buttons'>
                     <button className="operation-buttons__addition" onClick={() => {this.hideCalculation("showHideAddition")}}>
-                        Addition
+                    <FontAwesomeIcon className="operation-icon" icon={faSquarePlus} />
                     </button>
                     <button className='operation-buttons__subtraction' onClick={() => {this.hideCalculation("showHideSubtraction")}}>
-                        Subtraction
+                    <FontAwesomeIcon 
+                    className="operation-icon"
+                    icon={faSquareMinus} />
                     </button>
                     <button className='operation-buttons__multiplication' onClick={() => {this.hideCalculation("showHideMultiplication")}}>
-                        Multiplication
+                    <FontAwesomeIcon 
+                    className="operation-icon"
+                    icon={faSquareXmark} />
                     </button>
 
                 </div>
@@ -77,13 +83,13 @@ hideCalculation = (name) => {
 
 
             <div className = "calculation__view">
-                {showHideAddition && <Addition className="calculation__view-addition" 
+                {showHideAddition && <Addition className="calculation__view__addition" 
                 valueOne={valueOne} valueTwo={valueTwo}
                 />}
-                {showHideSubtraction && <Subtraction className="calculation__view-subtraction" 
+                {showHideSubtraction && <Subtraction className="calculation__view__subtraction" 
                 valueOne={valueOne} valueTwo={valueTwo}
                 />}
-                {showHideMultiplication && <Multiplication className="calculation__view-multiplication" 
+                {showHideMultiplication && <Multiplication className="calculation__view__multiplication" 
                 valueOne={valueOne} valueTwo={valueTwo}
                 />}
             </div>
