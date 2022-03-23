@@ -1,11 +1,18 @@
-.translation-container{
-    display: grid;
-    grid-template-columns: 1fr [button-s] 1fr [button-e list-s] 1fr [list-e];
-    width: 100%;
 
-
+    .history-container {
+        grid-row: history-s/history-e;
+        display: grid;
+        grid-template-columns: [button-s] max-content [button-e history-s] 1fr [history-e];
+        // grid-template-rows: ;
+        column-gap: 20px;
+        height: 300px;
+    
     .save-calculation-container{
         grid-column: button-s/button-e;
+        // grid-row: button-s/button-e;
+        margin: 15px;
+        height: max-content;
+
 
         .save-calculation{
             background-color: $oceanBlue;
@@ -20,13 +27,30 @@
                         inset 2px 2px 10px $blueGray; 
         }
     }
-
+}
 
     .calculation-history{
-        grid-column: list-s/list-e;
+        grid-column: history-s/history-e;
+        overflow: scroll;
+        border: 1px solid black;
+        width: 370px;
 
         &__item{
             font-size: 15px;
         }
     }
-}
+
+    li {
+        display: grid;
+        grid-template-columns: [calculation-s] 200px [calculation-e delete-s] 80px [delete-e];
+
+        .calculation-history__item{
+            grid-column: calculation-s/calculation-e;
+            font-size: 30px;
+        }
+        a{
+            font-size: 13px;
+            align-self: center;
+            grid-column: delete-s/delete-e;
+        }
+     }

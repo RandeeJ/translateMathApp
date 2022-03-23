@@ -1,8 +1,18 @@
 .userInput{
-    grid-column: left-s/left-e;
+    grid-row: input-s/input-e;
+    // grid-column: left-s/left-e;
     &-form{
-        display: flex;
-        justify-content: space-evenly;
+        display: grid;
+        width: max-content;
+        grid-template-columns: 30px [s] 1fr [m] 1fr [e] 30px;
+        // justify-content: space-evenly;
+        column-gap: 50px;
+
+        @media screen and (max-width: 800px){
+            display: grid;
+            grid-template-columns: 1fr; 
+            row-gap: 30px;
+        }
 
 
         &__left-value,
@@ -11,16 +21,16 @@
             box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
             2px 2px 6px rgba(0, 0, 0, 0.8);
             background-color: $oceanBlue;
+            width: auto;
+            justify-self: center;
 
         }
 
         &__left-value{
             grid-column: s/m;
-
         }
         &__right-value{
             grid-column: m/e;
-
         }
     }
 }
@@ -34,6 +44,11 @@ input[type="number"]{
     border: $oceanBlue;
     background-color: transparent;
     // margin: auto;
+
+    @media screen and (max-width: 800px){
+        font-size: 25px;
+        width: 50px;
+    }
 }
 
 input::-webkit-inner-spin-button,
@@ -65,6 +80,12 @@ input[type="button"]{
     cursor: pointer;
     box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
                 2px 2px 6px rgba(0, 0, 0, 0.8);
+
+    @media screen and (max-width: 800px){
+    font-size: 28px;
+    padding: 5px;
+    margin: 5px;
+    }
 }
     
 .fa{
@@ -75,6 +96,9 @@ input[type="button"]{
                     2px 2px 6px rgba(0, 0, 0, 0.8),
                     inset -2px -2px 10px rgba(255, 255, 255, 0.05),
                     inset 2px 2px 10px #00000080;
+        @media screen and (max-width: 800px){
+            font-size: 25px;
+        }
     }
 }
 

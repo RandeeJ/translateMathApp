@@ -13,21 +13,23 @@ class CalculationHistory extends Component {
       valueTwo: this.props.valueTwo,
       operation: this.props.operation,
       valueAnswer: this.props.valueAnswer,
-      data:[]
+      id: this.props.id,
+      historyItems:[]
     };
 
-  
+    // this.handleDeleteClick = this.handleDeleteClick.bind(this);
+// if you ever take a function from your class and you pass it anywhere else
+// you need to take it and bind it - if you take a function and pass it anywhere and you are using the this keyword, it needs to be bound. when you call bind, it changes the default value of the this keyword.
   }
 
-  componentDidMount(){
+  handleSuccessfulPost(historyItems){
     this.setState({
-      valueOne: this.props.valueOne,
-      valueTwo: this.props.valueTwo,
-      operation: this.props.operation,
-      valueAnswer: this.props.valueAnswer,
-    });
+      historyItems: [historyItems].concat(this.state.historyItems)
+    })
   }
-  saveCalculation() {
+
+  
+  saveCalculation(event) {
     console.log( "save calculation function" , this.state),
     axios
       .post("http://127.0.0.1:5000/calculation", {
@@ -35,19 +37,30 @@ class CalculationHistory extends Component {
         operation: this.state.operation,
         valueTwo: this.state.valueTwo,
         valueAnswer: this.state.valueAnswer,
+        id: this.state.id
+        // id: 0
       })
       .then((response) => {
-        // console.log("Save");
+        this.handleSuccessfulPost(response.data);
+
+        this.setState({
+          valueOne: this.state.valueOne,
+          operation: this.state.operation,
+          valueTwo: this.state.valueTwo,
+          valueAnswer: this.state.valueAnswer,
+          id: this.state.id
+
+        })
+        console.log("Save");
         // handle success
       })
       .catch((error) => {
         // handle error
-        console.log(error);
-      })
-      .then(() => {
-        // always executed
+        console.log("save calculation post request error", error);
       });
   }
+
+
 
 
   getCalculations() {
@@ -55,44 +68,55 @@ class CalculationHistory extends Component {
       .get("http://127.0.0.1:5000/calculations")
       .then((response) => {
         // handle success
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
-          data: [...response.data],
+          historyItems: this.state.historyItems.concat(response.data)
         });
       })
       .catch((error) => {
         // handle error
-        console.log(error);
+        console.log("getCalculations request error", error);
       })
-      .then(() => {
-        // always executed
-      });
-
+    }
       
+
+
+
+  handleDeleteClick(id){
+  //   // const id = response.data.id;
+    console.log("---->", (id))
+    axios.delete(`http://127.0.0.1:5000/calculation/${id}`, 
+  // //   {withCredentials: false}
+    )
+    .then((response) => {
+    console.log("delete button clicked", id)
+    // console.log("response from delete", props);
+
+      this.setState({
+        historyItems: this.state.historyItems.filter((item) => {
+          return item.id !== id;
+        })
+      });
+      return response.data;
+    }).catch(error => {
+      console.log("handleDeleteClick error", error);
+    })
   }
 
 
-  
+
 
 
 
   calculationList() {
-    return this.state.data.reverse().map((item, id) => {
-      console.log("calculation item", item, id);
+    return this.state.historyItems.reverse().map((item) => {
+      console.log("calculation item", item, item.id);
       return(
-        <div key={id}>
-          <HistoryItem item={item} id={id}/>
+        <div key={`calculation-item-${item.id}`}>
+          <HistoryItem item={item} id={item.id} handleDeleteClick={this.handleDeleteClick}/>
         </div>
       )
   })}
-
-
-// calculationList()
-
-
-  // componentDidMount() {
-  //     this.getCalculations();
-  //   }
 
 
 handleSubmit() {
@@ -102,10 +126,17 @@ handleSubmit() {
 
 
 
+// passID(data){
+//   console.log(data)
+// }
+
+
   render() {
 
+console.log("state.item.id", this.state.historyItems)
+
     return (
-      <div>
+      <div className="history-container">
         <div className="save-calculation-container">
           <button
             className="save-calculation"
@@ -118,17 +149,8 @@ handleSubmit() {
 
         <div className="calculation-history">
 
-        <h1> Previously Saved Calculations </h1>
-
           {this.calculationList()}
           
-          
-          <ul>
-
-          {/* when this component loads, need to get history. ComponentDidMount
-          state (history) (look into) */}
-
-          </ul>
         </div>
       </div>
     );
@@ -136,8 +158,3 @@ handleSubmit() {
 }
 
 export default CalculationHistory;
-
-
-// <div className='right-column'>
-// <HistoryList data={this.state.historyItem}/>
-// </div>

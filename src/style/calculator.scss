@@ -1,6 +1,5 @@
 .calculator_container{
-    display: grid;
-
+    grid-row: calculation-s/calculation-e;
 }
 
 .value-display{
@@ -10,58 +9,155 @@
 }
 
 .calculation-container{
-    display: grid;
-    grid-template-rows: 10px [top-s] 80px [top-e middle-s] 80px [middle-e bottom-s] 80px [bottom-e] 10px;
-    grid-template-columns: 25px [icon-s] 1fr [icon-e calculation-s] 1fr [calculation-e] 25px;
     justify-content: center;
     row-gap: 10px;
     width: 100%;
-    // height: 100vh;
+    height: 100%;
 
     
+
+
     .calculation{
+        display: grid;
+        grid-template-columns: [icon-s] 100px [icon-e calculation-s] 1fr [calculation-e];
+        height: min-content;
+        column-gap: 20px;
+        margin-left: 20px;
+        width: 100%;
+
+        @media screen and (max-width: 800px){
+            grid-template-columns: [icon-s] 50px [icon-e calculation-s] 1fr [calculation-e];
+        }
+        .operation-buttons{
+            display: grid;
+            grid-template-rows: [top-s] 100px [top-e middle-s] 100px [middle-e bottom-s] 100px [bottom-e];
+            grid-column: icon-s/icon-e;
+            row-gap: 15px;
+    
+            & > *{
+                font-size: 27px;
+                text-align: center;
+                background-color: $softPurple;
+                border-radius: 25%;
+                color: $sunnyYellow;
+                border: $softPurple;
+                height: 75px;
+                width: 75px;
+                padding: 10px;
+                box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+
+                @media screen and (max-width: 800px){
+                    font-size: 15px;
+                    height: 50px;
+                    width: 50px;
+                    padding: 5px;
+                    }
+            }
+    
+            &__addition{
+                grid-row: top-s/top-e;
+            }
+            &__subtraction{
+                grid-row: middle-s/middle-e;
+            }
+            &__multiplication{
+                grid-row: bottom-s/bottom-e;
+            }
+        }
+
+
+
         &__view{
+            display: grid;
+            width: 500px;
             grid-column: calculation-s/calculation-e;
-            .addition-calculation__calculation{
-                    grid-row: top-s/top-e; 
-            }
-            .subtraction-calculation__calculation{
-                    grid-row: middle-s/middle-e; 
-            }
-            .multiplication-calculation__calculation{
-                    grid-row: bottom-s/bottom-e;  
-            }
-        }
-    }
+            row-gap: 15px;
+            align-content: center;
 
-    .operation-buttons{
-        grid-column: icon-s/icon-e;
-        width: 40px;
-        justify-content: center;
+            
+            .addition-calculation-container{
+                display: grid;
+                grid-template-columns: [calculation-s] 200px [calculation-e language-s] 1fr [language-e];
+                grid-template-rows: [top-s] 100px [top-e middle-s] 100px [middle-e bottom-s] 100px [bottom-e language-s] 50px[language-e];
+                row-gap: 15px;
 
-        
-        & > *{
-            font-size: 27px;
-            text-align: center;
-            align-items: center;
-            background-color: $softPurple;
-            border-radius: 25%;
-            color: $sunnyYellow;
-            border: $softPurple;
-            padding: 10px;
-            box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
-            2px 2px 6px rgba(0, 0, 0, 0.8);
+                @media screen and (max-width: 800px){
+                    grid-template-columns: [calculation-s] 150px [calculation-e language-s] 1fr [language-e];
+                    }
+
+                .addition-calculation{
+                    grid-row: top-s/top-e;
+                    justify-self: center;
+
+                    grid-column: calculation-s/calculation-e;
+
+                    &__calculation{
+                        font-size: 30px;
+
+                        @media screen and (max-width: 800px){
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+            .subtraction-calculation-container{
+                    display: grid;
+                    grid-template-columns: [calculation-s] 200px [calculation-e language-s] 1fr [language-e];
+
+                    grid-template-rows: [top-s] 100px [top-e middle-s] 100px [middle-e bottom-s] 100px [bottom-e language-s] 50px[language-e];
+                    row-gap: 15px;
+
+                    @media screen and (max-width: 800px){
+                        grid-template-columns: [calculation-s] 150px [calculation-e language-s] 1fr [language-e];
+                        }
+
+                .subtraction-calculation{
+                    grid-row: middle-s/middle-e;
+                    justify-self: center;
+
+
+                    grid-column: calculation-s/calculation-e;
+
+                    &__calculation{
+                        font-size: 30px;
+
+                        @media screen and (max-width: 800px){
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+            .multiplication-calculation-container{
+                    display: grid;
+                    grid-template-columns: [calculation-s] 200px [calculation-e language-s] 1fr [language-e];
+                    grid-template-rows: [top-s] 100px [top-e middle-s] 100px [middle-e bottom-s] 100px [bottom-e language-s] 50px[language-e];
+                    row-gap: 15px;
+
+                    @media screen and (max-width: 800px){
+                        grid-template-columns: [calculation-s] 150px [calculation-e language-s] 1fr [language-e];
+                        }
+
+                .multiplication-calculation{
+                    grid-row: bottom-s/bottom-e;
+                    justify-self: center;
+
+                    grid-column: calculation-s/calculation-e;
+
+                    &__calculation{
+                        font-size: 30px;
+
+                        @media screen and (max-width: 800px){
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
         }
-        &__addition{
-            grid-row: top-s/top-e;
-        }
-        &__subtraction{
-            grid-row: middle-s/middle-e;
-        }
-        &__multiplication{
-            grid-row: bottom-s/bottom-e;
-        }
-    }
+    
+
+    
+}
 }
 
 
@@ -73,7 +169,13 @@
     &:hover{
         font-size: 45px;
         transition: ease-in-out .3s;
+        @media screen and (max-width: 800px){
+            font-size: 35px;
+            }
     }
+    @media screen and (max-width: 800px){
+        font-size: 40px;
+        }
 }
 
 

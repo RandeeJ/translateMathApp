@@ -17,7 +17,7 @@ class Multiplication extends Component {
         const valueAnswer = valueOne * valueTwo;
         const multiply = " x ";
             return(
-                <div>
+                <div className="multiplication-calculation-container">
                 <div className='multiplication-calculation'>
                 <div className='multiplication-calculation__calculation'>
                     {valueOne} * {valueTwo} = {valueAnswer}

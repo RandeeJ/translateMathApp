@@ -17,7 +17,7 @@ class Addition extends Component {
         const valueAnswer = valueOne + valueTwo;
         const plus = " + ";
             return(
-                <div>
+                <div className="addition-calculation-container">
                 <div className='addition-calculation'>
                     <div className='addition-calculation__calculation'>
                     {valueOne} + {valueTwo} = {valueAnswer}

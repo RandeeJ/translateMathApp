@@ -82,8 +82,8 @@ handleChange = ({ target }) => {
         
 
     return (
-      <div>
-          <div className='app'>
+      <div className = "app">
+          <div className='app__title'>
             <h1>Translate Math App</h1>
             <h2>Translate any math calculation into another language!</h2>
           </div>
@@ -107,7 +107,7 @@ handleChange = ({ target }) => {
                 // IT WAS IMPORTANT TO SET THE NAME HERE SO THAT THIS.STATE AND TARGET COULD BE INTERACTED WITH
                 name="valueOne"
                 onChange={this.handleChange} 
-                value = {this.state.valueOne}
+                value = {valueOne}
                 />
                 <label>
                 <button id="increment" className='inputButton' 
