@@ -58,9 +58,9 @@ decrementR = () => {
 
 
 
-handleChange = ({ target }) => {
-  this.setState({ [ target.name ] : target.value});
-};
+// handleChange = ({ target }) => {
+//   this.setState({ [ target.name ] : target.value});
+// };
 
   render() {
 
@@ -106,11 +106,12 @@ handleChange = ({ target }) => {
                 placeholder="Your First Value"
                 // IT WAS IMPORTANT TO SET THE NAME HERE SO THAT THIS.STATE AND TARGET COULD BE INTERACTED WITH
                 name="valueOne"
-                onChange={this.handleChange} 
+                // onChange={this.handleChange} 
                 value = {valueOne}
                 />
                 <label>
-                <button id="increment" className='inputButton' 
+                <button id="increment" 
+                className='inputButton' 
                 type="button"
                 onClick={() => this.incrementL()}> <FontAwesomeIcon className="fa" icon={faPlus} /> </button>
                 </label>
@@ -130,7 +131,7 @@ handleChange = ({ target }) => {
                 className="userInput-form__valueTwo"
                 placeholder="Your Second Value"
                 name= "valueTwo"
-                onChange={this.handleChange}
+                // onChange={this.handleChange}
                 value = {valueTwo} 
                 />
                 <label>

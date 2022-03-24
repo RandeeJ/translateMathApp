@@ -17,7 +17,7 @@ class CalculationHistory extends Component {
       historyItems:[]
     };
 
-    // this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
 // if you ever take a function from your class and you pass it anywhere else
 // you need to take it and bind it - if you take a function and pass it anywhere and you are using the this keyword, it needs to be bound. when you call bind, it changes the default value of the this keyword.
   }
@@ -140,10 +140,11 @@ console.log("state.item.id", this.state.historyItems)
         <div className="save-calculation-container">
           <button
             className="save-calculation"
-            type="submit"
+            // type="submit"
+            type="button"
             onClick={() => this.handleSubmit()}
           > Add To List <br/> 
-            <FontAwesomeIcon icon={faArrowRight} /> 
+            {/* <FontAwesomeIcon icon={faArrowRight} />  */}
           </button>
         </div>
 

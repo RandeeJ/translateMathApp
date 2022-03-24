@@ -1,17 +1,32 @@
 
-    .history-container {
+.history-container {
         grid-row: history-s/history-e;
         display: grid;
         grid-template-columns: [button-s] max-content [button-e history-s] 1fr [history-e];
         // grid-template-rows: ;
         column-gap: 20px;
         height: 300px;
+        justify-items: center;
+
+
+        @media screen and (max-width: 850px){
+            display: grid;
+            grid-template-rows: [button-s] 100px [button-e history-s] 150px [history-e];
+            grid-template-columns: 250px;
+            transform: translateX(-100px);
+        }
     
     .save-calculation-container{
         grid-column: button-s/button-e;
         // grid-row: button-s/button-e;
         margin: 15px;
         height: max-content;
+
+
+        @media screen and (max-width: 850px){
+            grid-row: button-s/button-e;
+            grid-column: 1;
+        }
 
 
         .save-calculation{
@@ -33,7 +48,13 @@
         grid-column: history-s/history-e;
         overflow: scroll;
         border: 1px solid black;
-        width: 370px;
+        width: 250px;
+
+
+        @media screen and (max-width: 850px){
+            grid-row: history-s/history-e;
+            grid-column: 1;
+        }
 
         &__item{
             font-size: 15px;
@@ -42,11 +63,11 @@
 
     li {
         display: grid;
-        grid-template-columns: [calculation-s] 200px [calculation-e delete-s] 80px [delete-e];
+        grid-template-columns: [calculation-s] 150px [calculation-e delete-s] 50px [delete-e];
 
         .calculation-history__item{
             grid-column: calculation-s/calculation-e;
-            font-size: 30px;
+            font-size: 25px;
         }
         a{
             font-size: 13px;

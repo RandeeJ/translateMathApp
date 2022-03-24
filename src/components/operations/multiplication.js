@@ -20,7 +20,7 @@ class Multiplication extends Component {
                 <div className="multiplication-calculation-container">
                 <div className='multiplication-calculation'>
                 <div className='multiplication-calculation__calculation'>
-                    {valueOne} * {valueTwo} = {valueAnswer}
+                    {valueOne} x {valueTwo} = {valueAnswer}
                     </div>
                     </div>
 

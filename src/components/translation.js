@@ -61,13 +61,13 @@ hideTranslation(name){
 
             <div key={id} className='language'>
                 <div className='language-buttons'>
-                    <button className="language-buttons__english" onClick={() => {this.hideTranslation("showHideEnglish")}}>
+                    <button className="language-buttons__english" type="button" onClick={() => {this.hideTranslation("showHideEnglish")}}>
                         English
                     </button>
-                    <button className='language-buttons__french' onClick={() => {this.hideTranslation("showHideFrench")}}>
+                    <button className='language-buttons__french' type="button" onClick={() => {this.hideTranslation("showHideFrench")}}>
                         French
                     </button>
-                    <button className='language-buttons__spanish' onClick={() => {this.hideTranslation("showHideSpanish")}}>
+                    <button className='language-buttons__spanish' type="button" onClick={() => {this.hideTranslation("showHideSpanish")}}>
                         Spanish
                     </button>
 

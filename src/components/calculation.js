@@ -64,15 +64,15 @@ hideCalculation = (name) => {
 
             <div key={valueOne} className='calculation'>
                 <div className='operation-buttons'>
-                    <button className="operation-buttons__addition" onClick={() => {this.hideCalculation("showHideAddition")}}>
+                    <button className="operation-buttons__addition" type="button" onClick={() => {this.hideCalculation("showHideAddition")}}>
                     <FontAwesomeIcon className="operation-icon" icon={faSquarePlus} />
                     </button>
-                    <button className='operation-buttons__subtraction' onClick={() => {this.hideCalculation("showHideSubtraction")}}>
+                    <button className='operation-buttons__subtraction' type="button" onClick={() => {this.hideCalculation("showHideSubtraction")}}>
                     <FontAwesomeIcon 
                     className="operation-icon"
                     icon={faSquareMinus} />
                     </button>
-                    <button className='operation-buttons__multiplication' onClick={() => {this.hideCalculation("showHideMultiplication")}}>
+                    <button className='operation-buttons__multiplication' type="button" onClick={() => {this.hideCalculation("showHideMultiplication")}}>
                     <FontAwesomeIcon 
                     className="operation-icon"
                     icon={faSquareXmark} />

@@ -25,7 +25,8 @@
         margin-left: 20px;
         width: 100%;
 
-        @media screen and (max-width: 800px){
+        @media screen and (max-width: 850px){
+            display: grid;
             grid-template-columns: [icon-s] 50px [icon-e calculation-s] 1fr [calculation-e];
         }
         .operation-buttons{
@@ -47,7 +48,7 @@
                 box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
                 2px 2px 6px rgba(0, 0, 0, 0.8);
 
-                @media screen and (max-width: 800px){
+                @media screen and (max-width: 850px){
                     font-size: 15px;
                     height: 50px;
                     width: 50px;
@@ -82,8 +83,8 @@
                 grid-template-rows: [top-s] 100px [top-e middle-s] 100px [middle-e bottom-s] 100px [bottom-e language-s] 50px[language-e];
                 row-gap: 15px;
 
-                @media screen and (max-width: 800px){
-                    grid-template-columns: [calculation-s] 150px [calculation-e language-s] 1fr [language-e];
+                @media screen and (max-width: 850px){
+                    grid-template-columns: [calculation-s] 100px [calculation-e language-s] 1fr [language-e];
                     }
 
                 .addition-calculation{
@@ -95,7 +96,7 @@
                     &__calculation{
                         font-size: 30px;
 
-                        @media screen and (max-width: 800px){
+                        @media screen and (max-width: 850px){
                             font-size: 25px;
                         }
                     }
@@ -108,8 +109,8 @@
                     grid-template-rows: [top-s] 100px [top-e middle-s] 100px [middle-e bottom-s] 100px [bottom-e language-s] 50px[language-e];
                     row-gap: 15px;
 
-                    @media screen and (max-width: 800px){
-                        grid-template-columns: [calculation-s] 150px [calculation-e language-s] 1fr [language-e];
+                    @media screen and (max-width: 850px){
+                        grid-template-columns: [calculation-s] 100px [calculation-e language-s] 1fr [language-e];
                         }
 
                 .subtraction-calculation{
@@ -122,7 +123,7 @@
                     &__calculation{
                         font-size: 30px;
 
-                        @media screen and (max-width: 800px){
+                        @media screen and (max-width: 850px){
                             font-size: 25px;
                         }
                     }
@@ -134,8 +135,8 @@
                     grid-template-rows: [top-s] 100px [top-e middle-s] 100px [middle-e bottom-s] 100px [bottom-e language-s] 50px[language-e];
                     row-gap: 15px;
 
-                    @media screen and (max-width: 800px){
-                        grid-template-columns: [calculation-s] 150px [calculation-e language-s] 1fr [language-e];
+                    @media screen and (max-width: 850px){
+                        grid-template-columns: [calculation-s] 100px [calculation-e language-s] 1fr [language-e];
                         }
 
                 .multiplication-calculation{
@@ -147,7 +148,7 @@
                     &__calculation{
                         font-size: 30px;
 
-                        @media screen and (max-width: 800px){
+                        @media screen and (max-width: 850px){
                             font-size: 25px;
                         }
                     }
@@ -169,11 +170,11 @@
     &:hover{
         font-size: 45px;
         transition: ease-in-out .3s;
-        @media screen and (max-width: 800px){
+        @media screen and (max-width: 850px){
             font-size: 35px;
             }
     }
-    @media screen and (max-width: 800px){
+    @media screen and (max-width: 850px){
         font-size: 40px;
         }
 }
