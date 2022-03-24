@@ -78,8 +78,7 @@ class CalculationHistory extends Component {
 
   handleDeleteClick(id){
     console.log("---->", (id))
-    axios.delete(`https://rj-cp-tma-api.herokuapp.com/${id}`, 
-    )
+    axios.delete(`https://rj-cp-tma-api.herokuapp.com/${id}`)
     .then((response) => {
     console.log("delete button clicked", id)
 
