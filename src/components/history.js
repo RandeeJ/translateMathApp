@@ -28,7 +28,7 @@ class CalculationHistory extends Component {
   saveCalculation(event) {
     console.log( "save calculation function" , this.state),
     axios
-      .post("http://127.0.0.1:5000/calculation", {
+      .post("https://rj-cp-tma-api.herokuapp.com/calculation", {
         valueOne: this.state.valueOne,
         operation: this.state.operation,
         valueTwo: this.state.valueTwo,
@@ -60,7 +60,7 @@ class CalculationHistory extends Component {
 
   getCalculations() {
     axios
-      .get("http://127.0.0.1:5000/calculations")
+      .get("https://rj-cp-tma-api.herokuapp.com//calculations")
       .then((response) => {
         // handle success
         this.setState({
@@ -78,7 +78,7 @@ class CalculationHistory extends Component {
 
   handleDeleteClick(id){
     console.log("---->", (id))
-    axios.delete(`http://127.0.0.1:5000/calculation/${id}`, 
+    axios.delete(`https://rj-cp-tma-api.herokuapp.com//${id}`, 
     )
     .then((response) => {
     console.log("delete button clicked", id)
