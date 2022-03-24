@@ -25,7 +25,6 @@ export default class French extends Component {
         
         
         const { languageTitle, 
-            // operation 
         } = this.state;
 
       
@@ -33,7 +32,6 @@ export default class French extends Component {
         return (
             <div className='translation-container'>
                 <div className='french-translation'>
-                    {/* <h2>{languageTitle} translation</h2> */}
 
                     <div className='translation'>
                         {frenchOne} {operation} {frenchTwo} = {frenchAnswer}

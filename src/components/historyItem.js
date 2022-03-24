@@ -5,13 +5,6 @@ class HistoryItem extends Component {
 
   constructor(props) {
     super(props)
-  
-  // this.state = {
-  //   valueOne: this.props.valueOne,
-  //   valueTwo: this.props.valueTwo,
-  //   operation: this.props.operation,
-  //   valueAnswer: this.props.valueAnswer,
-  // }
 
   } 
 
@@ -20,8 +13,6 @@ class HistoryItem extends Component {
 
 render() {
    
-  // props.func({this.props.item.id})
-
 
     const {valueOne, valueTwo, operation, valueAnswer, id} = this.props.item;
     console.log("--------->>",this.props, this.props.id, this.props.item.id)

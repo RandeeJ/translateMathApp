@@ -25,14 +25,12 @@ export default class Spanish extends Component {
         
         
         const { languageTitle, 
-            // operation 
         } = this.state;
 
 
         return (
             <div className='translation-container'>
                 <div className='spanish-translation'>
-                    {/* <h2>{languageTitle} translation</h2> */}
 
                     <div className='translation'>
                         {spanishOne} {operation} {spanishTwo} = {spanishAnswer}

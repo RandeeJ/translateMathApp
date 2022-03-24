@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { connect } from "react-redux";
 import Addition from './operations/addition';
 import Subtraction from "./operations/subtraction";
 import Multiplication from './operations/multiplication';
@@ -98,17 +97,4 @@ hideCalculation = (name) => {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     console.log("mapStateToProps", state);
-//     return{
-//       valueOne: state.valueOne,
-//       valueTwo: state.valueTwo,
-//     //   valueAnswer: state.valueAnswer
-//     }
-//   }
-
-// export default connect(mapStateToProps)(Calculation);
 export default Calculation;
-
-
-// https://www.youtube.com/watch?v=qdAThMLtF98&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK&index=6&ab_channel=Codevolution

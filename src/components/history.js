@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import HistoryItem from "./historyItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 class CalculationHistory extends Component {
   constructor(props) {
@@ -18,8 +16,6 @@ class CalculationHistory extends Component {
     };
 
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
-// if you ever take a function from your class and you pass it anywhere else
-// you need to take it and bind it - if you take a function and pass it anywhere and you are using the this keyword, it needs to be bound. when you call bind, it changes the default value of the this keyword.
   }
 
   handleSuccessfulPost(historyItems){
@@ -38,7 +34,6 @@ class CalculationHistory extends Component {
         valueTwo: this.state.valueTwo,
         valueAnswer: this.state.valueAnswer,
         id: this.state.id
-        // id: 0
       })
       .then((response) => {
         this.handleSuccessfulPost(response.data);
@@ -68,7 +63,6 @@ class CalculationHistory extends Component {
       .get("http://127.0.0.1:5000/calculations")
       .then((response) => {
         // handle success
-        // console.log(response.data);
         this.setState({
           historyItems: this.state.historyItems.concat(response.data)
         });
@@ -83,14 +77,11 @@ class CalculationHistory extends Component {
 
 
   handleDeleteClick(id){
-  //   // const id = response.data.id;
     console.log("---->", (id))
     axios.delete(`http://127.0.0.1:5000/calculation/${id}`, 
-  // //   {withCredentials: false}
     )
     .then((response) => {
     console.log("delete button clicked", id)
-    // console.log("response from delete", props);
 
       this.setState({
         historyItems: this.state.historyItems.filter((item) => {
@@ -126,11 +117,6 @@ handleSubmit() {
 
 
 
-// passID(data){
-//   console.log(data)
-// }
-
-
   render() {
 
 console.log("state.item.id", this.state.historyItems)
@@ -140,11 +126,9 @@ console.log("state.item.id", this.state.historyItems)
         <div className="save-calculation-container">
           <button
             className="save-calculation"
-            // type="submit"
             type="button"
             onClick={() => this.handleSubmit()}
           > Add To List <br/> 
-            {/* <FontAwesomeIcon icon={faArrowRight} />  */}
           </button>
         </div>
 

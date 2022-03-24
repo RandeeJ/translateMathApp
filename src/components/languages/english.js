@@ -26,20 +26,13 @@ class English extends Component {
         const englishTwo = n2words(valueTwo, {lang: 'en'}).replace("minus", "negative");
         const englishAnswer = n2words(valueAnswer, {lang: 'en'}).replace("minus", "negative");
         
-        // LOOK INTO REPLACE FUNCTION TO SUBSTITUTE NEGATIVE IN FOR MINUS
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
-        // https://www.w3schools.com/jsref/jsref_replace.asp
         
         const { languageTitle } = this.state;
 
-        // console.log("english component", valueOne, 
-        // valueAnswer
-        // )
 
         return (
             <div key={languageTitle} className='translation-container'>
                 <div className='english-translation'>
-                    {/* <h2>{languageTitle} translation</h2> */}
 
                     <div className='translation'>
                         {englishOne} {operation} {englishTwo} = {englishAnswer}

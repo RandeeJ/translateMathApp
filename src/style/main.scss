@@ -22,8 +22,6 @@ body{
     background-color: antiquewhite;
     overflow: scroll;
 
-    // display: grid;
-    // grid-template-columns: [left-s] 2fr [left-e right-s] 1fr [right-s];
     
 
     .app {
@@ -37,10 +35,3 @@ body{
         }
     }
 }
-
-
-// @media screen and {min-width: 860px}{
-//     body {
-//         grid-template-columns: ;
-//     }
-// }

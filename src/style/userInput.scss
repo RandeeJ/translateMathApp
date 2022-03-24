@@ -1,9 +1,7 @@
 .userInput{
     grid-row: input-s/input-e;
-    // grid-column: left-s/left-e;
     &-form{
         display: grid;
-        // width: max-content;
         grid-template-columns: 30px [s] 1fr [m] 1fr [e] 30px;
         justify-items: center;
         column-gap: 50px;
@@ -13,7 +11,6 @@
             display: grid;
             grid-template-rows: 1fr;
             column-gap: 30px;
-            // row-gap: 30px;
         }
 
 
@@ -23,11 +20,9 @@
             box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
             2px 2px 6px rgba(0, 0, 0, 0.8);
             background-color: $oceanBlue;
-            // width: 285px;
             justify-content: center;
 
             @media screen and (max-width: 850px){
-            // width: 200px;
             justify-content: center;
             }
         }
@@ -49,7 +44,6 @@ input[type="number"]{
     transform: translateY(-10px);
     border: $oceanBlue;
     background-color: transparent;
-    // margin: auto;
 
     @media screen and (max-width: 850px){
         font-size: 25px;
@@ -64,10 +58,8 @@ input::-webkit-outer-spin-button{
 }
 
 .inputButton{
-    // color: white;
     background-color: transparent;
     border: none;
-    // font-size: 40px;
     cursor: pointer;
     font-family: "Font Awesome\ 5 Free", "Lato", "Arial", "Helvetica", "sans-serif";
     font-weight: 600;

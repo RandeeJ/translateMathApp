@@ -1,11 +1,8 @@
 .language{
     display: grid;
-    // grid-row: language-s/language-e;
     grid-column: language-s/language-e;
     grid-template-rows: [buttons-s] 100px [buttons-e text-s] 500px [text-e];
     width: 100%;
-    // height: 100vh;
-    // grid-template-rows: minmax(10px 60px);
     @media screen and (max-width: 850px){
         display: grid;
         grid-template-rows: 1fr;
@@ -36,10 +33,7 @@
             color: $softPurple;
             font-weight: 800;
             border: 2px $softPurple solid;
-            // border-bottom: 2px $softPurple solid;
-            // border-right: 2px $softPurple solid;
             border-radius: 25%;
-            // border-bottom: 1px transparent solid;
             cursor: pointer;
             padding: 15px;
             height: 70px;
@@ -82,9 +76,7 @@
 
 
         @media screen and (max-width: 850px){
-            // display: grid;
             grid-column: text-s/text-e;
-        // grid-row: text-s/text-e;
     }
 }
 

@@ -3,7 +3,6 @@
         grid-row: history-s/history-e;
         display: grid;
         grid-template-columns: [button-s] max-content [button-e history-s] 1fr [history-e];
-        // grid-template-rows: ;
         column-gap: 20px;
         height: 300px;
         justify-items: center;
@@ -18,7 +17,6 @@
     
     .save-calculation-container{
         grid-column: button-s/button-e;
-        // grid-row: button-s/button-e;
         margin: 15px;
         height: max-content;
 
