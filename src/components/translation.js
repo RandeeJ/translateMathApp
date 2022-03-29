@@ -3,6 +3,8 @@ import English from './languages/english';
 import Spanish from "./languages/spanish";
 import French from './languages/french';
 
+import CalculationHistory from './history';
+
 
 
 
@@ -80,6 +82,9 @@ hideTranslation(name){
                     {showHideFrench && <French className="translation__view__french" valueOne={valueOne} valueTwo={valueTwo} valueAnswer={valueAnswer} operation={operation}/>}
                     {showHideSpanish && <Spanish className="translation__view__spanish" valueOne={valueOne} valueTwo={valueTwo} valueAnswer={valueAnswer} operation={operation}/>}
                 </div>
+
+                <CalculationHistory {...this.props}/>
+
             </div>
         );
     }

@@ -38,7 +38,7 @@ export default class French extends Component {
                     </div>
                     
 
-                    <CalculationHistory {...this.props}/>
+                    {/* <CalculationHistory {...this.props}/> */}
                     </div>
                 
             </div>

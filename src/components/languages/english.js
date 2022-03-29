@@ -39,7 +39,6 @@ class English extends Component {
                     </div>
                 
 
-                <CalculationHistory {...this.props}/>
                 </div>
 
             </div>

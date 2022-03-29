@@ -8,7 +8,12 @@
         border-top: 5px dashed black;
         padding-top: 15px;
 
-
+        @media only screen and (max-width: 620px) {
+            display: grid;
+            grid-column: buttons-s/text-e;
+            grid-template-columns: [button-s] 125px [button-e history-s] 1fr [history-e];
+            
+        }
     
     .save-calculation-container{
         grid-column: button-s/button-e;
@@ -47,14 +52,12 @@
         border-left: 1px double black;
         background-color: rgba(254, 251, 230, 0.3);
 
-
-
     ul{
         list-style-type: none;
     
         .calculation-history__item {
         display: grid;
-        grid-template-columns: [calculation-s] 150px [calculation-e delete-s] 50px [delete-e];
+        grid-template-columns: [calculation-s] 135px [calculation-e delete-s] 40px [delete-e];
 
         &-text{
             grid-column: calculation-s/calculation-e;
