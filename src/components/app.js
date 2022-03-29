@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import {faPlus, faMinus, faLanguage, faCalculator } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -49,9 +49,9 @@ decrementR = () => {
 
     return (
       <div className = "app">
-          <div className='app__title'>
-            <h1>Translate Math App</h1>
-            <h2>Translate any math calculation into another language!</h2>
+          <div className='app-header'>
+            <h1 className='app-header__title'>  <FontAwesomeIcon icon={faCalculator} />  Translate Math App   <FontAwesomeIcon icon={faLanguage} /></h1>
+            <h2 className='app-header__description'>Translate any math calculation into another language!</h2>
           </div>
 
           <div className="userInput">
@@ -68,7 +68,6 @@ decrementR = () => {
                 <input type="number" 
                 id="inputOne"
                 className="userInput-form__valueOne"
-                placeholder="Your First Value"
                 name="valueOne"
                 value = {valueOne}
                 />
@@ -92,7 +91,6 @@ decrementR = () => {
                 <input type="number"
                 id="inputTwo"
                 className="userInput-form__valueTwo"
-                placeholder="Your Second Value"
                 name= "valueTwo"
                 value = {valueTwo} 
                 />

@@ -36,10 +36,11 @@ export default class French extends Component {
                     <div className='translation'>
                         {frenchOne} {operation} {frenchTwo} = {frenchAnswer}
                     </div>
+                    
 
                     <CalculationHistory {...this.props}/>
-
-                </div>
+                    </div>
+                
             </div>
         );
     }

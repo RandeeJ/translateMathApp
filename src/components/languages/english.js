@@ -37,10 +37,10 @@ class English extends Component {
                     <div className='translation'>
                         {englishOne} {operation} {englishTwo} = {englishAnswer}
                     </div>
-                </div>
+                
 
                 <CalculationHistory {...this.props}/>
-
+                </div>
 
             </div>
         );

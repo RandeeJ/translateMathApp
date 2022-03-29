@@ -26,7 +26,7 @@ class CalculationHistory extends Component {
 
   
   saveCalculation(event) {
-    console.log( "save calculation function" , this.state),
+    // console.log( "save calculation function" , this.state),
     axios
       .post("https://rj-cp-tma-api.herokuapp.com/calculation", {
         valueOne: this.state.valueOne,
@@ -46,12 +46,12 @@ class CalculationHistory extends Component {
           id: this.state.id
 
         })
-        console.log("Save");
+        // console.log("Save");
         // handle success
       })
       .catch((error) => {
         // handle error
-        console.log("save calculation post request error", error);
+        // console.log("save calculation post request error", error);
       });
   }
 
@@ -69,7 +69,7 @@ class CalculationHistory extends Component {
       })
       .catch((error) => {
         // handle error
-        console.log("getCalculations request error", error);
+        // console.log("getCalculations request error", error);
       })
     }
       
@@ -77,11 +77,9 @@ class CalculationHistory extends Component {
 
 
   handleDeleteClick(id){
-    console.log("---->", (id))
     axios.delete(`https://rj-cp-tma-api.herokuapp.com/calculation/${id}`)
     .then((response) => {
-    console.log("delete button clicked", id)
-
+    // console.log("delete button clicked", id)
       this.setState({
         historyItems: this.state.historyItems.filter((item) => {
           return item.id !== id;
@@ -100,11 +98,9 @@ class CalculationHistory extends Component {
 
   calculationList() {
     return this.state.historyItems.reverse().map((item) => {
-      console.log("calculation item", item, item.id);
+      // console.log("calculation item", item, item.id);
       return(
-        <div key={`calculation-item-${item.id}`}>
-          <HistoryItem item={item} id={item.id} handleDeleteClick={this.handleDeleteClick}/>
-        </div>
+          <HistoryItem className="calculation-item" item={item} id={item.id} handleDeleteClick={this.handleDeleteClick}/>
       )
   })}
 
@@ -118,7 +114,7 @@ handleSubmit() {
 
   render() {
 
-console.log("state.item.id", this.state.historyItems)
+// console.log("state.item.id", this.state.historyItems)
 
     return (
       <div className="history-container">

@@ -15,23 +15,21 @@ render() {
    
 
     const {valueOne, valueTwo, operation, valueAnswer, id} = this.props.item;
-    console.log("--------->>",this.props, this.props.id, this.props.item.id)
 
   return (
 
 <div>
 
-    <div key={id}>
-      <ul>
-      <li> 
-        <div className="calculation-history__item">
+  <ul>
+      <li className="calculation-history__item" key={id}> 
+        <div className={`calculation-history__item-text calculation-history__text-${id}`}>
           {valueOne} {operation} {valueTwo} = {valueAnswer} 
         </div>
-      <a onClick={() => this.props.handleDeleteClick(this.props.id)
+      <a className="calculation-history__item-delete"
+      onClick={() => this.props.handleDeleteClick(this.props.id)
 }>Delete</a>
       </li>
       </ul>
-    </div>
     </div>
   );
 }

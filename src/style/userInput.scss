@@ -6,32 +6,52 @@
         justify-items: center;
         column-gap: 50px;
 
-        @media screen and (max-width: 850px){
+        @media screen and (max-width: 800px){
             width: 100%;
             display: grid;
             grid-template-rows: 1fr;
             column-gap: 30px;
         }
+        @media only screen and (max-width: 620px) {
+            display: grid;
+            grid-template-rows:1fr 1fr;
+            grid-template-columns: 1fr;
+            row-gap: 30px;
+        }
+
+    
 
 
         &__left-value,
         &__right-value{
+            display: flex;
             border-radius: 45px;
             box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
             2px 2px 6px rgba(0, 0, 0, 0.8);
             background-color: $oceanBlue;
             justify-content: center;
-
-            @media screen and (max-width: 850px){
-            justify-content: center;
-            }
+            height: 80px;
+            align-items: center;
+            
         }
 
         &__left-value{
             grid-column: s/m;
+            @media only screen and (max-width: 620px) {
+                grid-row:1;
+                grid-column: 1;
+
+                }
+            
         }
         &__right-value{
             grid-column: m/e;
+            @media only screen and (max-width: 620px) {
+                grid-row:2;
+                grid-column: 1;
+
+
+                }
         }
     }
 }
@@ -41,13 +61,16 @@ input[type="number"]{
     font-size: 50px;
     width: 75px;
     text-align: center;
-    transform: translateY(-10px);
     border: $oceanBlue;
     background-color: transparent;
+    align-self: center;
 
-    @media screen and (max-width: 850px){
-        font-size: 25px;
-        width: 50px;
+    @media screen and (max-width: 800px){
+        font-size: 50px;
+        width: 70px;
+    }
+    @media only screen and (max-width: 620px) {
+        min-width: 70px;
     }
 }
 
@@ -79,10 +102,13 @@ input[type="button"]{
     box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
                 2px 2px 6px rgba(0, 0, 0, 0.8);
 
-    @media screen and (max-width: 850px){
-    font-size: 28px;
+    @media screen and (max-width: 800px){
+    font-size: 40px;
     padding: 5px;
     margin: 5px;
+    }
+    @media only screen and (max-width: 620px) {
+        font-size: 40px;
     }
 }
     
@@ -94,9 +120,12 @@ input[type="button"]{
                     2px 2px 6px rgba(0, 0, 0, 0.8),
                     inset -2px -2px 10px rgba(255, 255, 255, 0.05),
                     inset 2px 2px 10px #00000080;
-        @media screen and (max-width: 850px){
-            font-size: 25px;
+        @media screen and (max-width: 800px){
+            font-size: 37px;
         }
+    }
+    &:active{
+        font-size: 35px;
     }
 }
 
