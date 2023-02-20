@@ -1,58 +1,51 @@
 $oceanBlue: #006994;
-$blueGray: #6699CC;
+$blueGray: #6699cc;
 $neonGreen: #39ff14;
 $neonRed: #ff1818;
 $softPurple: #9170af;
 $sunnyYellow: #fbe056;
-
-
 
 @import "./history.scss";
 @import "./calculator.scss";
 @import "./translation.scss";
 @import "./userInput.scss";
 
-body{
-    margin: 0;
-
-    
+body {
+  margin: 0;
 }
 
+.app-wrapper {
+  background-image: url("../../static/assets/images/background.png");
+  background-size: cover;
+  overflow: scroll;
 
-.app-wrapper{
-    background-image: url("../../static/assets/images/background.png");
-    background-size: cover ;
-    overflow: scroll;
+  @media only screen and (max-width: 620px) {
+    width: 100vw;
+  }
+
+  .app {
+    display: grid;
+    grid-template-rows: [title-s] 17rem [title-e input-s] 120px [input-e calculation-s] 1fr [calculation-e translation-s] 150px [translation-e] 30px;
+    height: 100vh;
 
     @media only screen and (max-width: 620px) {
-        width: 100vw;
+      grid-template-rows: [title-s] 1fr [title-e input-s] 1fr [input-e calculation-s] 1fr [calculation-e translation-s] 150px [translation-e] 30px;
     }
 
-    .app {
-        display: grid;
-        grid-template-rows: [title-s] 1fr [title-e input-s] 120px [input-e calculation-s] 1fr [calculation-e translation-s] 150px [translation-e] 30px;
-        height: 100vh;
+    &-header {
+      grid-row: title-s/title-e;
+      font-family: "Merienda", cursive;
+      text-align: center;
+      background-color: rgba(76, 147, 218, 0.666);
+      border-bottom: 10px double black;
+      margin-bottom: 20px;
 
-
-        @media only screen and (max-width: 620px) {
-            grid-template-rows: [title-s] 1fr [title-e input-s] 1fr [input-e calculation-s] 1fr [calculation-e translation-s] 150px [translation-e] 30px;
-        }
-
-        &-header{
-            grid-row: title-s/title-e;
-            font-family: 'Merienda', cursive;
-            text-align: center;
-            background-color: rgba(76, 147, 218, 0.666);
-            border-bottom: 10px double black;
-            margin-bottom: 20px;
-
-            &__title{
-                font-size: 50px;
-
-            }
-            &__description{
-                font-size: 30px;
-            }
-        }
+      &__title {
+        font-size: 50px;
+      }
+      &__description {
+        font-size: 30px;
+      }
     }
+  }
 }
