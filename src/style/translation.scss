@@ -1,0 +1,178 @@
+.language{
+    display: grid;
+    grid-row: buttons-s/buttons-e;
+    grid-column: left-s/right-e;
+    grid-template-rows: [buttons-s] 1fr [buttons-e] 20px [text-s] 1fr [text-e history-s] 1fr [history-e];
+    width: 100%;
+
+    @media only screen and (max-width: 620px) {
+    display: grid;
+    grid-template-columns: [buttons-s] 1fr [buttons-e] 5px [text-s] 2fr [text-e];
+
+
+    }
+
+    &-buttons{
+        grid-row: buttons-s/buttons-e;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+        @media only screen and (max-width: 620px) {
+        grid-column: buttons-s/buttons-e;
+        grid-template-columns: 1fr;
+        display: grid;
+        row-gap: 5px;
+        grid-template-rows: 1fr 1fr 1fr;
+        padding-left: 15px;
+        }
+        & > * {
+            background-color: $sunnyYellow;
+            font-size: 30px;
+            // width: min-content;
+            color: $softPurple;
+            font-weight: 800;
+            border: 7px $softPurple solid;
+            border-radius: 25%;
+            cursor: pointer;
+            padding: 15px;
+            height: 70px;
+            justify-self: center;
+            box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+
+                @media only screen and (max-width: 620px) {
+                font-size: 25px;
+                padding: 10px;
+                }
+
+
+            &:hover{
+                color: darkcyan;
+                border: 7px darkcyan solid;
+                border-radius: 25%;
+                transition: ease-in-out .3s;
+                text-shadow: 1px 1px #6d6268;
+                box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1),
+                    2px 2px 6px rgba(0, 0, 0, 0.8),
+                    inset -2px -2px 10px rgba(255, 255, 255, 0.05),
+                    inset 2px 2px 10px #00000080;
+            }
+            &:active{
+                font-size: 25px;
+            }
+
+        }
+        &__english{
+            grid-column: 1;
+            @media only screen and (max-width: 620px) {
+            grid-row: 1;
+            grid-column: 1;
+            }
+        }
+        &__french{
+                grid-column: 2;
+            @media only screen and (max-width: 620px) {
+                grid-row: 2;
+                grid-column: 1;
+
+                }
+        }
+        &__spanish{
+                grid-column: 3;
+            @media only screen and (max-width: 620px) {
+                grid-row: 3;
+                grid-column: 1;
+
+                }
+        }
+    }
+}
+    .translation__view{
+        grid-row: text-s/text-e;
+        @media only screen and (max-width: 620px) {
+            grid-column: text-s/text-e;
+            grid-row: 1;
+
+}
+
+
+.translation-container{
+   display: grid;
+   grid-template-rows: [translation-s] 100px [translation-e history-s] 1fr [history-e];
+
+   @media only screen and (max-width: 620px) {
+    display: grid;
+    row-gap: 5px;
+    grid-template-rows: repeat(3, 75px);
+   }
+}
+
+
+ .translation{
+        text-align: start;
+        padding-left: 10px;
+        padding-right: 10px;
+
+
+        @media screen and (max-width: 850px){
+            font-size: 25px;
+            align-self: center;
+
+        }
+    }
+
+
+    .english-translation{
+        display: grid;
+        grid-row: translation-s/translation-e;
+        grid-template-rows: [text-s] 50px [text-e] 10px [history-s] 100px [history-e];
+        width: 100%;
+        @media only screen and (max-width: 620px) {
+            grid-row: 1;
+            grid-template-rows: 1fr;
+        }
+        
+        .translation{
+            justify-self: start;
+
+        
+    }
+}
+
+    .french-translation{
+        display: grid;
+        grid-row: translation-s/translation-e;
+        grid-template-rows: [text-s] 50px [text-e] 10px [ history-s] 100px [history-e];
+        width: 100%;
+        @media only screen and (max-width: 620px) {
+            grid-row: 2;
+            grid-template-rows: 1fr;
+
+        }
+
+        .translation{
+            justify-self: center;
+
+        
+    }
+}
+
+    .spanish-translation{
+        display: grid;
+        grid-row: translation-s/translation-e;        
+        grid-template-rows: [text-s] 50px [text-e] 10px [ history-s] 100px [history-e];
+        width: 100%;
+        @media only screen and (max-width: 620px) {
+            grid-row: 3;
+            grid-template-rows: 1fr;
+
+        }
+
+        .translation{            
+            justify-self: end;
+
+        
+    }
+}
+}
+    
