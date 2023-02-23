@@ -1,0 +1,545 @@
+.history-container {
+  grid-row: history-s/history-e;
+  display: grid;
+  grid-template-columns: [button-s] 200px [button-e history-s] 1fr [history-e];
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  justify-content: center;
+  border-top: 5px dashed black;
+  padding-top: 15px;
+}
+@media only screen and (max-width: 620px) {
+  .history-container {
+    display: grid;
+    grid-column: buttons-s/text-e;
+    grid-template-columns: [button-s] 125px [button-e history-s] 1fr [history-e];
+  }
+}
+.history-container .save-calculation-container {
+  grid-column: button-s/button-e;
+  margin: 15px;
+  justify-self: center;
+}
+.history-container .save-calculation-container .save-calculation {
+  background-color: #006994;
+  font-size: 20px;
+  color: white;
+  border-radius: 15%;
+  padding: 15px;
+  text-align: center;
+  border: #006994 1px solid;
+  box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+.history-container .save-calculation-container .save-calculation:hover {
+  box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8), inset -2px -2px 10px rgba(255, 255, 255, 0.05), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
+}
+.history-container .save-calculation-container .save-calculation:active {
+  font-size: 18px;
+}
+
+.calculation-history {
+  grid-column: history-s/history-e;
+  overflow: auto;
+  border-left: 1px double black;
+  background-color: rgba(254, 251, 230, 0.3);
+}
+.calculation-history ul {
+  list-style-type: none;
+}
+.calculation-history ul .calculation-history__item {
+  display: grid;
+  grid-template-columns: [calculation-s] 135px [calculation-e delete-s] 40px [delete-e];
+}
+.calculation-history ul .calculation-history__item-text {
+  grid-column: calculation-s/calculation-e;
+  font-size: 25px;
+}
+.calculation-history ul .calculation-history__item-delete {
+  font-size: 13px;
+  align-self: center;
+  grid-column: delete-s/delete-e;
+}
+
+.calculator-container {
+  grid-row: calculation-s/calculation-e;
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  width: 100%;
+}
+
+.calculation-container .calculation {
+  display: grid;
+  grid-template-rows: [mathicon-s] 100px [mathicon-e calculation-s] 1fr [calculation-e];
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+.calculation-container .calculation .operation-buttons {
+  display: grid;
+  grid-template-columns: [left-s] 230px [left-e middle-s] 230px [middle-e right-s] 230px [right-e];
+  grid-row: mathicon-s/mathicon-e;
+}
+@media only screen and (max-width: 620px) {
+  .calculation-container .calculation .operation-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+  }
+}
+.calculation-container .calculation .operation-buttons > * {
+  font-size: 27px;
+  text-align: center;
+  background-color: #9170af;
+  border-radius: 25%;
+  color: #fbe056;
+  border: #9170af;
+  height: 75px;
+  width: 75px;
+  padding: 10px;
+  justify-self: center;
+  box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+.calculation-container .calculation .operation-buttons > *:hover {
+  box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8), inset -2px -2px 10px rgba(255, 255, 255, 0.05), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
+}
+@media screen and (max-width: 850px) {
+  .calculation-container .calculation .operation-buttons > * {
+    height: 80px;
+    width: 80px;
+    padding: 5px;
+  }
+}
+.calculation-container .calculation__view {
+  display: grid;
+  grid-row: calculation-s/calculation-e;
+  align-content: center;
+}
+.calculation-container .calculation__view .addition-calculation-container {
+  display: grid;
+  grid-template-rows: [calculation-s] 80px [calculation-e buttons-s] 80px [buttons-e];
+  grid-template-columns: [left-s] 230px [left-e middle-s] 230px [middle-e right-s] 230px [right-e];
+}
+@media only screen and (max-width: 620px) {
+  .calculation-container .calculation__view .addition-calculation-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+.calculation-container .calculation__view .addition-calculation-container .addition-calculation {
+  grid-row: calculation-s/calculation-e;
+  grid-column: left-s/left-e;
+}
+.calculation-container .calculation__view .addition-calculation-container .addition-calculation__calculation {
+  font-size: 30px;
+  text-align: left;
+  padding: 10px;
+}
+.calculation-container .calculation__view .subtraction-calculation-container {
+  display: grid;
+  grid-template-rows: [calculation-s] 80px [calculation-e buttons-s] 80px [buttons-e];
+  grid-template-columns: [left-s] 230px [left-e middle-s] 230px [middle-e right-s] 230px [right-e];
+}
+@media only screen and (max-width: 620px) {
+  .calculation-container .calculation__view .subtraction-calculation-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+.calculation-container .calculation__view .subtraction-calculation-container .subtraction-calculation {
+  grid-row: calculation-s/calculation-e;
+  grid-column: middle-s/middle-e;
+}
+.calculation-container .calculation__view .subtraction-calculation-container .subtraction-calculation__calculation {
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+}
+.calculation-container .calculation__view .multiplication-calculation-container {
+  display: grid;
+  grid-template-rows: [calculation-s] 80px [calculation-e buttons-s] 80px [buttons-e];
+  grid-template-columns: [left-s] 230px [left-e middle-s] 230px [middle-e right-s] 230px [right-e];
+}
+@media only screen and (max-width: 620px) {
+  .calculation-container .calculation__view .multiplication-calculation-container {
+    grid-template-columns: 1fr;
+  }
+}
+.calculation-container .calculation__view .multiplication-calculation-container .multiplication-calculation {
+  grid-row: calculation-s/calculation-e;
+  grid-column: right-s/right-e;
+}
+.calculation-container .calculation__view .multiplication-calculation-container .multiplication-calculation__calculation {
+  font-size: 30px;
+  text-align: right;
+  padding: 10px;
+}
+
+.operation-icon {
+  justify-self: center;
+  font-size: 58px;
+}
+.operation-icon:hover {
+  font-size: 55px;
+  transition: ease-in-out 0.3s;
+}
+@media screen and (max-width: 850px) {
+  .operation-icon:hover {
+    font-size: 65px;
+  }
+}
+.operation-icon:active {
+  font-size: 50px;
+}
+@media screen and (max-width: 850px) {
+  .operation-icon {
+    font-size: 60px;
+  }
+}
+
+.language {
+  display: grid;
+  grid-row: buttons-s/buttons-e;
+  grid-column: left-s/right-e;
+  grid-template-rows: [buttons-s] 1fr [buttons-e] 20px [text-s] 1fr [text-e history-s] 1fr [history-e];
+  width: 100%;
+}
+@media only screen and (max-width: 620px) {
+  .language {
+    display: grid;
+    grid-template-columns: [buttons-s] 1fr [buttons-e] 5px [text-s] 2fr [text-e];
+  }
+}
+.language-buttons {
+  grid-row: buttons-s/buttons-e;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+@media only screen and (max-width: 620px) {
+  .language-buttons {
+    grid-column: buttons-s/buttons-e;
+    grid-template-columns: 1fr;
+    display: grid;
+    row-gap: 5px;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding-left: 15px;
+  }
+}
+.language-buttons > * {
+  background-color: #fbe056;
+  font-size: 30px;
+  color: #9170af;
+  font-weight: 800;
+  border: 7px #9170af solid;
+  border-radius: 25%;
+  cursor: pointer;
+  padding: 15px;
+  height: 70px;
+  justify-self: center;
+  box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+@media only screen and (max-width: 620px) {
+  .language-buttons > * {
+    font-size: 25px;
+    padding: 10px;
+  }
+}
+.language-buttons > *:hover {
+  color: darkcyan;
+  border: 7px darkcyan solid;
+  border-radius: 25%;
+  transition: ease-in-out 0.3s;
+  text-shadow: 1px 1px #6d6268;
+  box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8), inset -2px -2px 10px rgba(255, 255, 255, 0.05), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
+}
+.language-buttons > *:active {
+  font-size: 25px;
+}
+.language-buttons__english {
+  grid-column: 1;
+}
+@media only screen and (max-width: 620px) {
+  .language-buttons__english {
+    grid-row: 1;
+    grid-column: 1;
+  }
+}
+.language-buttons__french {
+  grid-column: 2;
+}
+@media only screen and (max-width: 620px) {
+  .language-buttons__french {
+    grid-row: 2;
+    grid-column: 1;
+  }
+}
+.language-buttons__spanish {
+  grid-column: 3;
+}
+@media only screen and (max-width: 620px) {
+  .language-buttons__spanish {
+    grid-row: 3;
+    grid-column: 1;
+  }
+}
+
+.translation__view {
+  grid-row: text-s/text-e;
+}
+@media only screen and (max-width: 620px) {
+  .translation__view {
+    grid-column: text-s/text-e;
+    grid-row: 1;
+  }
+}
+.translation__view .translation-container {
+  display: grid;
+  grid-template-rows: [translation-s] 100px [translation-e history-s] 1fr [history-e];
+}
+@media only screen and (max-width: 620px) {
+  .translation__view .translation-container {
+    display: grid;
+    row-gap: 5px;
+    grid-template-rows: repeat(3, 75px);
+  }
+}
+.translation__view .translation {
+  text-align: start;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media screen and (max-width: 850px) {
+  .translation__view .translation {
+    font-size: 25px;
+    align-self: center;
+  }
+}
+.translation__view .english-translation {
+  display: grid;
+  grid-row: translation-s/translation-e;
+  grid-template-rows: [text-s] 50px [text-e] 10px [history-s] 100px [history-e];
+  width: 100%;
+}
+@media only screen and (max-width: 620px) {
+  .translation__view .english-translation {
+    grid-row: 1;
+    grid-template-rows: 1fr;
+  }
+}
+.translation__view .english-translation .translation {
+  justify-self: start;
+}
+.translation__view .french-translation {
+  display: grid;
+  grid-row: translation-s/translation-e;
+  grid-template-rows: [text-s] 50px [text-e] 10px [history-s] 100px [history-e];
+  width: 100%;
+}
+@media only screen and (max-width: 620px) {
+  .translation__view .french-translation {
+    grid-row: 2;
+    grid-template-rows: 1fr;
+  }
+}
+.translation__view .french-translation .translation {
+  justify-self: center;
+}
+.translation__view .spanish-translation {
+  display: grid;
+  grid-row: translation-s/translation-e;
+  grid-template-rows: [text-s] 50px [text-e] 10px [history-s] 100px [history-e];
+  width: 100%;
+}
+@media only screen and (max-width: 620px) {
+  .translation__view .spanish-translation {
+    grid-row: 3;
+    grid-template-rows: 1fr;
+  }
+}
+.translation__view .spanish-translation .translation {
+  justify-self: end;
+}
+
+.userInput {
+  grid-row: input-s/input-e;
+}
+.userInput-form {
+  display: grid;
+  grid-template-columns: 30px [s] 1fr [m] 1fr [e] 30px;
+  justify-items: center;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+@media screen and (max-width: 800px) {
+  .userInput-form {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+  }
+}
+@media only screen and (max-width: 620px) {
+  .userInput-form {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+}
+.userInput-form__left-value, .userInput-form__right-value {
+  display: flex;
+  border-radius: 45px;
+  box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+  background-color: #006994;
+  justify-content: center;
+  height: 80px;
+  align-items: center;
+}
+.userInput-form__left-value {
+  grid-column: s/m;
+}
+@media only screen and (max-width: 620px) {
+  .userInput-form__left-value {
+    grid-row: 1;
+    grid-column: 1;
+  }
+}
+.userInput-form__right-value {
+  grid-column: m/e;
+}
+@media only screen and (max-width: 620px) {
+  .userInput-form__right-value {
+    grid-row: 2;
+    grid-column: 1;
+  }
+}
+
+input[type=number] {
+  color: white;
+  font-size: 50px;
+  width: 75px;
+  text-align: center;
+  border: #006994;
+  background-color: transparent;
+  align-self: center;
+}
+@media screen and (max-width: 800px) {
+  input[type=number] {
+    font-size: 50px;
+    width: 70px;
+  }
+}
+@media only screen and (max-width: 620px) {
+  input[type=number] {
+    min-width: 70px;
+  }
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0;
+}
+
+.inputButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: "Font Awesome 5 Free", "Lato", "Arial", "Helvetica", "sans-serif";
+  font-weight: 600;
+}
+
+input[type=button] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+}
+
+.fa {
+  font-size: 40px;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+@media screen and (max-width: 800px) {
+  .fa {
+    font-size: 40px;
+    padding: 5px;
+    margin: 5px;
+  }
+}
+@media only screen and (max-width: 620px) {
+  .fa {
+    font-size: 40px;
+  }
+}
+
+.fa:hover {
+  transition: ease-in-out 0.3s;
+  font-size: 38px;
+  box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.8), inset -2px -2px 10px rgba(255, 255, 255, 0.05), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
+}
+@media screen and (max-width: 800px) {
+  .fa:hover {
+    font-size: 37px;
+  }
+}
+.fa:active {
+  font-size: 35px;
+}
+
+#decrement {
+  padding: 0 0 0 25px;
+  color: #ff1818;
+}
+
+#increment {
+  padding: 0 25px 0 0;
+  color: #39ff14;
+}
+
+body {
+  margin: 0;
+}
+
+.app-wrapper {
+  background-image: url(/static/assets/images/background.png);
+  background-size: cover;
+  overflow: scroll;
+}
+@media only screen and (max-width: 620px) {
+  .app-wrapper {
+    width: 100vw;
+  }
+}
+.app-wrapper .app {
+  display: grid;
+  grid-template-rows: [title-s] 17rem [title-e input-s] 120px [input-e calculation-s] 1fr [calculation-e translation-s] 150px [translation-e] 30px;
+  height: 100vh;
+}
+@media only screen and (max-width: 620px) {
+  .app-wrapper .app {
+    grid-template-rows: [title-s] 1fr [title-e input-s] 1fr [input-e calculation-s] 1fr [calculation-e translation-s] 150px [translation-e] 30px;
+  }
+}
+.app-wrapper .app-header {
+  grid-row: title-s/title-e;
+  font-family: "Merienda", cursive;
+  text-align: center;
+  background-color: rgba(76, 147, 218, 0.666);
+  border-bottom: 10px double black;
+  margin-bottom: 20px;
+}
+.app-wrapper .app-header__title {
+  font-size: 50px;
+}
+.app-wrapper .app-header__description {
+  font-size: 30px;
+}
+/*# sourceMappingURL=app-ce6e2e0e0a7803a9094f.map*/
