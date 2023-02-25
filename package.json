@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Use math as the universal language to learn other languages!",
   "engines": {
-    "node": "12.22.12",
+    "node": "14.21.3",
     "npm": "6.14.8"
   },
-  "homepage": "https://translatemathapp.github.io",
+  "homepage": "https://randeej.github.io/translatemathapp",
   "scripts": {
     "preinstall": "npm set audit false",
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",
