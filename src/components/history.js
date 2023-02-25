@@ -28,7 +28,7 @@ class CalculationHistory extends Component {
   saveCalculation(event) {
     // console.log( "save calculation function" , this.state),
     axios
-      .post("https://rj-cp-tma-api.herokuapp.com/calculation", {
+      .post("https://rj-translatemathapp.herokuapp.com/calculation", {
         valueOne: this.state.valueOne,
         operation: this.state.operation,
         valueTwo: this.state.valueTwo,
@@ -60,7 +60,7 @@ class CalculationHistory extends Component {
 
   getCalculations() {
     axios
-      .get("https://rj-cp-tma-api.herokuapp.com/calculations")
+      .get("https://rj-translatemathapp.herokuapp.com/calculations")
       .then((response) => {
         // handle success
         this.setState({
@@ -77,7 +77,7 @@ class CalculationHistory extends Component {
 
 
   handleDeleteClick(id){
-    axios.delete(`https://rj-cp-tma-api.herokuapp.com/calculation/${id}`)
+    axios.delete(`https://rj-translatemathapp.herokuapp.com/calculation/${id}`)
     .then((response) => {
     // console.log("delete button clicked", id)
       this.setState({
