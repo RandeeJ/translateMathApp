@@ -7,6 +7,7 @@ import { faSquareMinus, faSquarePlus, faSquareXmark } from '@fortawesome/free-so
 
 
 
+
 class Calculation extends Component {
     constructor(props){
         super(props);
@@ -17,6 +18,8 @@ class Calculation extends Component {
             showHideMultiplication: false,
             showHideSubtraction: false
         }
+        // this.hideCalculation = this.hideCalculation.bind(this);
+
     }
 
 hideCalculation = (name) => {

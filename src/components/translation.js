@@ -9,7 +9,6 @@ import CalculationHistory from './history';
 
 
 class Translation extends Component {
-
     constructor(props){
         super(props); 
 
@@ -19,7 +18,7 @@ class Translation extends Component {
             showHideSpanish: false,
             showHideFrench: false,
         }
-        this.hideTranslation = this.hideTranslation.bind(this);
+        // this.hideTranslation = this.hideTranslation.bind(this);
     }
 
 hideTranslation(name){

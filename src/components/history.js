@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+// import 'babel-polyfill'
 import HistoryItem from "./historyItem";
 
 class CalculationHistory extends Component {
@@ -20,7 +20,9 @@ class CalculationHistory extends Component {
 
   handleSuccessfulPost(historyItems){
     this.setState({
-      historyItems: [historyItems].concat(this.state.historyItems)
+      // historyItems: [historyItems].concat(this.state.historyItems)
+      historyItems: [historyItems].insert(0,this.state.historyItems)
+
     })
   }
 
@@ -97,7 +99,8 @@ class CalculationHistory extends Component {
 
 
   calculationList() {
-    return this.state.historyItems.reverse().map((item) => {
+    return this.state.historyItems.slice().reverse().map((item) => {
+        
       // console.log("calculation item", item, item.id);
       return(
           <HistoryItem className="calculation-item" item={item} id={item.id} handleDeleteClick={this.handleDeleteClick}/>
@@ -105,10 +108,16 @@ class CalculationHistory extends Component {
   })}
 
 
+// handleSubmit() {
+//    this.saveCalculation()
+//    this.getCalculations()
+// }
+
 handleSubmit() {
   this.saveCalculation()
-  this.getCalculations()
+  setTimeout(() => {this.getCalculations()},  200)
 }
+
 
 
 

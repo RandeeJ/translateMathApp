@@ -22,17 +22,15 @@ incrementL = () => {
 decrementL = () => {
   this.setState({valueOne: this.state.valueOne - 1})}
 
-
-
-
-
 incrementR = () => {
   this.setState({valueTwo: this.state.valueTwo + 1})}
 
 decrementR = () => {
   this.setState({valueTwo: this.state.valueTwo - 1})}
 
-
+handleChange(event) {
+  this.setState({value: event.target.value});
+}
 
 
 
@@ -70,6 +68,7 @@ decrementR = () => {
                 className="userInput-form__valueOne"
                 name="valueOne"
                 value = {valueOne}
+                onChange={this.handleChange}
                 />
                 <label>
                 <button id="increment" 
@@ -92,7 +91,8 @@ decrementR = () => {
                 id="inputTwo"
                 className="userInput-form__valueTwo"
                 name= "valueTwo"
-                value = {valueTwo} 
+                value = {valueTwo}
+                onChange={this.handleChange} 
                 />
                 <label>
                 <button id="increment"

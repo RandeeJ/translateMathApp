@@ -26,7 +26,7 @@ render() {
           {valueOne} {operation} {valueTwo} = {valueAnswer} 
         </div>
       <a className="calculation-history__item-delete"
-      onClick={() => this.props.handleDeleteClick(this.props.id)
+      onClick={() => this.props.handleDeleteClick(id)
 }>Delete</a>
       </li>
       </ul>
